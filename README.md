@@ -1,16 +1,62 @@
 # 💪 Flask Scaffolder
 
-**flask-scaffolder** is a CLI tool for generating Flask-based project structures with built-in:
-Project Layout:
+**flask-scaffolder** is a developer-friendly CLI tool designed to automate the creation of structured, production-ready Flask projects. It simplifies the boilerplate setup by generating a fully-configured project layout tailored to modern development practices.
+
+Whether you're starting a new Flask microservice, prototyping an API backend, or onboarding team members quickly, flask-scaffolder helps you hit the ground running by providing:
+
+🔧 A clean and modular project layout with best practices
+
+📦 A virtual environment ready to go, using venv
+
+🛠️ Pre-configured and extensible configuration files:
+
+.env (rendered dynamically using Jinja2 templates)
+
+.gitignore, requirements.txt, pyproject.toml
+
+.pre-commit-config.yaml for linting and formatting hooks
+
+🚀 Ready-to-use Flask app structure, including:
+
+app/, templates/, and static/ folders
+
+Pre-written routes and initialization boilerplate
+
+📄 Optional VSCode-friendly .vscode/ settings
+
+✅ Easy pre-commit hook setup with one command
+
+🪵 Logging support for both terminal and file
+
+⚙️ Customizable flags for environment settings, SMTP config, secret keys, and more
+
+No more repetitive setup — just scaffold, configure, and start coding. 🔥
+
+## 📁 Project Layout (Internal Package Structure)
 ```txt
-├── site-packages/
-│   ├── flask_scaffolder/
-│   │   ├── __init__.py
-│   │   ├── cli.py
-│   │   └── core.py
-│   └── artifacts/
-│       └── (contents of artifacts)
+site-packages/
+├── flask_scaffolder/                # 🔧 Main Python package
+│   ├── __init__.py                  # Package initializer
+│   ├── cli.py                       # CLI command logic
+│   ├── core.py                      # Core logic for rendering, copying, setup
+│   └── artifacts/                   # 📦 Project template files and scaffolding assets
+│       ├── app/                     # Default Flask `app/` folder to copy
+│       │   ├── __init__.py
+│       │   └── routes.py
+│       ├── templates/               # HTML templates
+│       │   └── base.html
+│       ├── static/                  # CSS, JS, etc.
+│       │   └── style.css
+│       ├── .vscode/                # VSCode workspace recommendations
+│       │   └── settings.json
+│       ├── .gitignore.j2            # Template for .gitignore
+│       ├── .env.j2                  # Template for environment variables
+│       ├── requirements.txt         # Default Python dependencies
+│       ├── pyproject.toml           # Optional packaging config
+│       └── .pre-commit-config.yaml  # Pre-commit hooks setup
+
 ```
+**📝 Note:** The artifacts/ folder has been placed inside the flask_scaffolder/ package so it's included in the installation and accessible via package-relative paths. This ensures smooth access when copying scaffolding during CLI execution.
 
 - Virtual environment setup
 - `.env` rendering (from Jinja templates)
