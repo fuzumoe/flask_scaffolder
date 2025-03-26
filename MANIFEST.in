@@ -1,0 +1,14 @@
+# MANIFEST.in
+
+# Include these directories and their contents
+recursive-include artifacts *
+recursive-include app *
+recursive-include scaffolder/templates *
+recursive-include scaffolder/static *
+
+# Include all dotfiles you care about (e.g., .env.j2, .gitignore)
+include artifacts/.env.j2
+include artifacts/.gitignore
+include artifacts/requirements.txt
+include artifacts/.pre-commit-config.yaml
+include artifacts/pyproject.toml

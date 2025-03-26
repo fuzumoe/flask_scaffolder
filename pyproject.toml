@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flask-scaffolder"
+version = "0.1.0"
+description = "A CLI tool to scaffold Flask-based projects"
+authors = [
+    { name = "Adam Fuzum", email = "fuzumoe@gmail.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = ["Jinja2"]
+requires-python = ">=3.8"
+
+[tool.setuptools]
+packages = ["flask_scaffolder"]
+include-package-data = true
+
+[project.scripts]
+flask-scaffolder = "flask_scaffolder.cli:main"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = ["artifacts", ".venv"]
+select = ["E", "F", "I", "B", "UP", "C90", "N", "PT", "SIM", "RUF"]
+ignore = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]

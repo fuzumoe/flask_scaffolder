@@ -1,0 +1,14 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.8  # Latest as of March 25, 2025
+    hooks:
+      - id: ruff
+        args: ["--fix", "--exit-non-zero-on-fix"]
+        additional_dependencies: []  # Optional, if needed
+
+  - repo: https://github.com/psf/black
+    rev: 24.8.0  # Latest as of March 25, 2025
+    hooks:
+      - id: black
+        language_version: py311  # Matches pyproject.toml target-version
+        exclude: '(\.vscode|\.venv)'  # Regex to exclude .vscode and .venv
