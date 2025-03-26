@@ -15,16 +15,17 @@ dependencies = ["Jinja2"]
 requires-python = ">=3.8"
 
 [tool.setuptools]
-packages = ["flask_scaffolder"]
+package-dir = { "" = "src" }  # Look for packages in src/
+packages = ["flask_scaffolder"]  # The package inside src/
 include-package-data = true
 
 [project.scripts]
-flask-scaffolder = "flask_scaffolder.cli:main"
+flask-scaffolder = "flask_scaffolder.cli:main"  # Points to src/flask_scaffolder/cli.py
 
 [tool.ruff]
 line-length = 88
 target-version = "py311"
-extend-exclude = ["artifacts", ".venv"]
+extend-exclude = ["src/artifacts", ".venv"]  # Exclude artifacts from linting
 select = ["E", "F", "I", "B", "UP", "C90", "N", "PT", "SIM", "RUF"]
 ignore = ["B008"]
 

@@ -1,6 +1,16 @@
 # 💪 Flask Scaffolder
 
 **flask-scaffolder** is a CLI tool for generating Flask-based project structures with built-in:
+Project Layout:
+```txt
+├── site-packages/
+│   ├── flask_scaffolder/
+│   │   ├── __init__.py
+│   │   ├── cli.py
+│   │   └── core.py
+│   └── artifacts/
+│       └── (contents of artifacts)
+```
 
 - Virtual environment setup
 - `.env` rendering (from Jinja templates)
@@ -14,7 +24,10 @@
 ## 🚀 Installation
 
 ### 📦 Local (Editable)
-
+```bash
+pip install -e git+https://github.com/fuzumoe/flask_scaffolder.git#egg=flask-scaffolder --break-system-packages
+```
+or
 ```bash
 git clone https://github.com/yourusername/flask-scaffolder.git
 cd flask-scaffolder

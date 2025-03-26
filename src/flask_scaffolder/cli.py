@@ -1,6 +1,7 @@
+# src/flask_scaffolder/cli.py
 import argparse
 
-from .core import scaffold_project  # Relative import to avoid circularity
+from flask_scaffolder.core import scaffold_project
 
 
 def main():

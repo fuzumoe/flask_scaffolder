@@ -1,10 +1,16 @@
-# flask_scaffolder/core.py
+# src/flask_scaffolder/core.py
 import logging
 import os
 import shutil
 import subprocess
 
 from jinja2 import Environment, FileSystemLoader
+
+# Use importlib.resources to locate the artifacts folder
+try:
+    from importlib.resources import files  # Python 3.9+
+except ImportError:
+    from importlib_resources import files  # For older Python versions
 
 
 def setup_logger(log_file_path: str):
@@ -65,8 +71,8 @@ def copy_directory(src_dir, dst_dir, logger):
 def scaffold_project(target_dir: str, context: dict):
     os.makedirs(target_dir, exist_ok=True)
 
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    artifacts_dir = os.path.join(base_dir, "artifacts")
+    # Locate the artifacts folder using importlib.resources
+    artifacts_dir = str(files("flask_scaffolder").parent.joinpath("artifacts"))
 
     log_file_path = os.path.join(target_dir, "scaffold.log")
     logger = setup_logger(log_file_path)
